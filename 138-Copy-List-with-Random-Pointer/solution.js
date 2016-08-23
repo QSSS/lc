@@ -38,5 +38,5 @@ var copyRandomList = function(head) {
         q = q.next;
         p = p.next;
     }
-    return newHead;
+    return copyHead;
 };
