@@ -11,13 +11,15 @@
  * @return {RandomListNode}
  */
 var copyRandomList = function(head) {
+    if (!head) {
+        return head;
+    }
     var map = new Map();
-    
+    var copyHead = new RandomListNode(head.label);
     var p = head;
     var q = copyHead;
     map.set(head, copyHead);
     p = p.next;
-    var copyHead = new RandomListNode(head.label);
     
     while (p) {
         var nodeCopy = new RandomList(p.label);
