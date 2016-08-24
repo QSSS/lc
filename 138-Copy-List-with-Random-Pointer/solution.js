@@ -22,7 +22,7 @@ var copyRandomList = function(head) {
     p = p.next;
     
     while (p) {
-        var nodeCopy = new RandomList(p.label);
+        var nodeCopy = new RandomListNode(p.label);
         map.set(p, nodeCopy);
         q.next = nodeCopy;
         q = q.next;
