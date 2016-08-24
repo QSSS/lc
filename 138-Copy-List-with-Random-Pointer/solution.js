@@ -21,7 +21,7 @@ var copyRandomList = function(head) {
     map[head.label] = copyHead;
     p = p.next;
 
-    while (p) {
+    while (p !== null) {
         var nodeCopy = new RandomListNode(p.label);
         map[p] = nodeCopy;
         q.next = nodeCopy;
@@ -33,7 +33,7 @@ var copyRandomList = function(head) {
     p = head;
     q = copyHead;
 
-    while (p) {
+    while (p !== null) {
         q.random = map[p];
         q = q.next;
         p = p.next;
