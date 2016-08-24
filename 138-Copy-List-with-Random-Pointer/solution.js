@@ -12,7 +12,6 @@
  */
 var copyRandomList = function(head) {
     var dict = {};
-    var missed = [];
     var originNode = head;
     var newNode = new RandomListNode(0);
     var originHead = head;
@@ -21,21 +20,19 @@ var copyRandomList = function(head) {
         var temp = new RandomListNode(originNode.label);
            dict[originNode.label] = temp;
            newNode.next = temp;
-           newNode = newNode.next;
 
-           if(originNode.random !== null){
-               if(dict[originNode.random.label]){
-                   newNode.random = dict[originNode.random.label];
-               }else{
-                   newNode.random = originNode.random.label;
-                   missed.push(newNode.label);
-               }
-        }
+        newNode = newNode.next;
         originNode = originNode.next;
     }
-    for(var i = 0; i < missed.length; i++){
-        var curr = dict[missed[i]];
-        curr.random = dict[curr.random];
+
+    originNode = originHead;
+    newNode = newHead.next;
+    while(originNode !== null){
+        if(originNode.random !== null){
+            newNode.random = dict[originNode.random.label];
+        }
+        newNode = newNode.next;
+        originNode = originNode.next;
     }
     return newHead.next;    
 };
