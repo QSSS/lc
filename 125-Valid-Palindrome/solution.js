@@ -11,8 +11,8 @@ var isPalindrome = function(s) {
         return true;
     }
     re = /[0-9a-z]/ig;
-    
     s_list = s.match(re);
+    if(s_list.length === 0) return false;
     var left = 0, right = s_list.length - 1;
     while (left < right) {
         if (s_list[left] !== s_list[right]) {
